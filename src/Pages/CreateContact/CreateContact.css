@@ -1,0 +1,30 @@
+.wrapper-contact{
+    display:flex;
+    flex-direction:column;
+    margin-top:5%;
+    width:100%;
+}
+.register{
+    display:flex;
+    flex-direction:column;
+    margin-left:25%;
+    width:50%;
+}
+.form-container{
+    margin-top:2%;
+}
+.email-container{
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+
+}
+.email-form{
+    width:100%;
+}
+.button-form{
+    height:40px;
+}
+.to-bd{
+    font-weight:bold;
+}
