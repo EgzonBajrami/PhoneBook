@@ -1,8 +1,12 @@
+
 .edit-btn{
     background-color:rgb(0,134,87);
 
     color:white;
     border-radius:0.5rem;
+    padding-right:0.5rem;
+    padding-left:0.5rem;
+    height:35px;
     border-color:rgb(0,134,87);
     object-position:50% 50%;
 }
@@ -11,6 +15,10 @@
 
     color:white;
     border-radius:0.5rem;
+    border-radius:0.5rem;
+    padding-right:0.5rem;
+    padding-left:0.5rem;
+    height:35px;
     border-color:rgb(230,52,71);
     object-position:50% 50%;
 }

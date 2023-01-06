@@ -91,12 +91,12 @@ const ContactsHolder = () =>{
                     
             
     
-            <td><button
+            <td className="center-btn"><button
             onClick={()=>{
                 navigate(`/edit/${elem._id}`)
             }}
              className="edit-btn">Edit</button></td>
-            <td><button className="delete-btn"
+            <td className="center-btn"><button className="delete-btn"
             onClick={()=>{setDeleteId(elem._id)}}>Delete</button></td>
           </tr>
          
