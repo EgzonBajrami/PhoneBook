@@ -1,12 +1,14 @@
 import './CreateContact.css'
-import {Form, Button} from 'react-bootstrap';
+import {Form, Button,Alert} from 'react-bootstrap';
 import {useState} from 'react';
 import {api,endpoints} from '../../Lib'
 import {useNavigate} from 'react-router-dom'
 
 
+
 const CreateContact = () =>{
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+    
     const [name,setName] = useState('');
     const [lastName, setLastname] = useState('');
     const [address, setAddress] = useState('');
@@ -14,6 +16,7 @@ const CreateContact = () =>{
     const [country, setCountry] = useState('');
     const [emails, setEmails] =  useState(['']);
     const [numbers, setNumbers] = useState(['']);
+    const [created,setCreated] = useState(false);
     console.log(numbers);
 
     const handleSubmit = async(e)=>{
@@ -35,10 +38,14 @@ const CreateContact = () =>{
         config.data = data;
         const result = await api.call(endpoints.addContact, config);
         console.log(result);
-        if(result.succes){
+        if(result.success){
             setTimeout(()=>{
-                navigate('/')
+                setCreated(true);
             },3000)
+            setTimeout(()=>{
+              setCreated(false);
+              navigate('/')
+            },5000)
         }
     }
     const handleEmailClick = async(e)=>{
@@ -55,6 +62,11 @@ const CreateContact = () =>{
     }
     console.log(emails);
     return <>
+    {created ? (<> 
+    <Alert variant='success'>Your contact has been successfully added.</Alert>
+
+    </>):(<>
+   
     <div className="wrapper-contact">
         <div className="register">
             <h3>Register new contact</h3>
@@ -265,6 +277,7 @@ const CreateContact = () =>{
         
 
     </div>
+    </>)}
     </>
 }
 export default CreateContact;

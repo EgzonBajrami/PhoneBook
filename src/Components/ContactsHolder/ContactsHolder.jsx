@@ -23,9 +23,7 @@ const ContactsHolder = () =>{
             params:[deleteId]
         }
         const deleted = await api.call(endpoints.removeProduct, config);
-        if(deleted.success){
-            alert('Contact has been successfully deleted.')
-        }
+        window.location.reload();
         console.log(deleted);
    
      

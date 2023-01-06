@@ -9,8 +9,9 @@ import EditPage from './Pages/EditPage/EditPage';
 
 function App() {
   return<>
-  <Header />
   <BrowserRouter>
+  
+  <Header />
   <Routes>
     <Route path="/" element={<HomePage />} />
     <Route path="/createContact" element={<CreateContact />} />

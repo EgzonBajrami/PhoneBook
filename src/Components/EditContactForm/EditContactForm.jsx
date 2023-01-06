@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {Form, Button} from 'react-bootstrap'
+import {Form, Button, Alert} from 'react-bootstrap'
 import {api,endpoints} from '../../Lib'
 import {useNavigate} from 'react-router-dom'
 const EditContactForm = ({data}) =>{
@@ -11,6 +11,7 @@ const EditContactForm = ({data}) =>{
     const [country, setCountry] = useState(data.country);
     const [emails, setEmails] =  useState(data.emails);
     const [numbers, setNumbers] = useState(data.phonenumber);
+    const [created,setCreated] = useState(false);
     const postId = data._id;
 
 
@@ -34,9 +35,12 @@ const EditContactForm = ({data}) =>{
         config.data = data;
         const result = await api.call(endpoints.editContact, config);
         if(result.success){
+          setTimeout(()=>{
+            setCreated(true);
+          },3000);
             setTimeout(()=>{
                 navigate('/');
-            },3000)
+            },6000)
         }
         console.log(result);
     }
@@ -54,7 +58,11 @@ const EditContactForm = ({data}) =>{
     }
     console.log(emails);
     return <>
-  
+   {created ? (<> 
+    <Alert variant='success'>Your contact has been successfully edited.</Alert>
+
+    </>):(<>
+   
     <div className="wrapper-contact">
         <div className="register">
             <h3>Register new contact</h3>
@@ -265,6 +273,7 @@ const EditContactForm = ({data}) =>{
         
 
     </div>
+    </>)}
     </>
 }
 export default EditContactForm;
