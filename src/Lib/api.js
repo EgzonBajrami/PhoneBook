@@ -11,7 +11,7 @@ import axios from 'axios'
 */
 const api = {
   call: async (endpoint, config = {}) => {
-    let url = 'http://127.0.0.1:4000' + endpoint.url
+       let url = process.env.REACT_APP_API_URL + endpoint.url
     const {data, headers} = config
 
 
