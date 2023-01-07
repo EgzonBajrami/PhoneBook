@@ -48,7 +48,7 @@ const ContactsHolder = () =>{
           </tr>
         </thead>
         <tbody >
-    {data.length>0 &&data.map((elem)=>{
+    {data &&data.map((elem)=>{
        
    return(
     <>
