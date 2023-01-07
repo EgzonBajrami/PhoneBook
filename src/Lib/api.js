@@ -11,7 +11,7 @@ import axios from 'axios'
 */
 const api = {
   call: async (endpoint, config = {}) => {
-       let url = "https://realestate-eb-better.herokuapp.com/" + endpoint.url
+       let url = "https://realestate-eb-better.herokuapp.com" + endpoint.url
     const {data, headers} = config
 
 
